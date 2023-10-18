@@ -1,23 +1,26 @@
-from ninja import Schema
+from ninja import Schema, ModelSchema
 from product.models import Product, Color, Size
 
 
-class ColorSchema(Schema):
-    color: str
+class ColorSchema(ModelSchema):
+    class Config:
+        model = Color
+        model_fields = ('color',)
 
 
-class SizeSchema(Schema):
-    size: str
+class SizeSchema(ModelSchema):
+    class Config:
+        model = Size
+        model_fields = ('size',)
 
 
-class ProductSchema(Schema):
-    name: str
-    price: int
-    colors: ColorSchema
-    size: SizeSchema
-    # class Config:
-    #     model = Product
-    #     model_fields = ['name', 'price', 'colors', 'size']
+class ProductSchema(ModelSchema):
+    colors: list[ColorSchema] = None
+    size: list[SizeSchema] = None
+
+    class Config:
+        model = Product
+        model_fields = ('name', 'price',)
 
 
 class NotFoundSchema(Schema):
