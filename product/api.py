@@ -3,7 +3,7 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI
 from product.models import Product
-from schema import ProductSchema, NotFoundSchema
+from product.schema import ProductSchema, NotFoundSchema
 
 api = NinjaAPI()
 
@@ -19,4 +19,3 @@ def products(request, name: Optional[str] = None):
 def product(request, product_id: str):
     product = get_object_or_404(Product, id=product_id)
     return product
-
