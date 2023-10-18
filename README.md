@@ -1,4 +1,5 @@
 # Cadastro de Produtos usando Django
+### Web API usando Django Ninja para consumo de dados de produtos.
 
 Para instalar o projeto execute os seguintes passos.
 
@@ -13,4 +14,3 @@ http://127.0.0.1:8000/admin/
 
 * user: admin 
 * pass: admin
-
