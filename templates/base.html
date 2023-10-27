@@ -26,10 +26,9 @@
             <div class="flex flex-row space-x-36 justify-center mt-8 mb-8">
                 <!-- Div para imagem do produto -->
                 <div>
-                    <img style="width: 40rem;" class="rounded-lg" x-bind:src="'http://localhost:9000' + product.image"
+                    <img style="width: 40rem;" class="rounded-lg" :src="'{{ request.scheme }}://{{ request.get_host }}' + product.image"
                         x-bind:alt="product.name">
                 </div>
-
 
                 <!-- Div para detalhes do produto -->
                 <div>
