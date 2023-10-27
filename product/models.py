@@ -26,7 +26,8 @@ class Product(models.Model):
         verbose_name=_('name'),
         help_text=_('Provide the name of the product'),
         null=False,
-        blank=False, )
+        blank=False
+    )
 
     price = models.DecimalField(
         decimal_places=2,
@@ -34,11 +35,14 @@ class Product(models.Model):
         verbose_name=_('price'),
         help_text=_('Provide the price of the product'),
         null=False,
-        blank=False, )
+        blank=False
+    )
 
     colors = models.ManyToManyField(Color, verbose_name=_('Colors'))
 
     size = models.ManyToManyField(Size, verbose_name=_('Sizes'))
+
+    image = models.ImageField(upload_to='')
 
     def __str__(self):
         return self.name

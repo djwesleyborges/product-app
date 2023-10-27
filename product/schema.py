@@ -20,7 +20,7 @@ class ProductSchema(ModelSchema):
 
     class Config:
         model = Product
-        model_fields = ('name', 'price',)
+        model_fields = ('id', 'name', 'price', 'image')
 
 
 class NotFoundSchema(Schema):
