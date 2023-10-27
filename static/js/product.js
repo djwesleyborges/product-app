@@ -1,5 +1,6 @@
 const getItems = () => ({
     filteredItems: [],
+    sizes: ['P', 'M', 'G', 'XG', 'GG'],
 
     init() {
         this.getData()
