@@ -12,7 +12,7 @@
 
 Para instalar o projeto execute os seguintes passos.
 
-```
+```bash
 git clone https://github.com/djwesleyborges/product-app.git
 cd product-app
 
