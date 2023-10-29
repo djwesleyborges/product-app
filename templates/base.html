@@ -3,14 +3,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Produto</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Produto</title>
 </head>
 
 <body class="bg-gray-300">
@@ -19,55 +19,42 @@
     <a href="#">Produto</a>
   </div>
 
-  <div
-    x-data="getItems"
-    class="m-8"
-  >
+  <div x-data="getItems" class="m-8">
 
-    <template
-      x-for="product in filteredItems"
-      :key="product.id"
-    >
+    <template x-for="product in filteredItems" :key="product.id">
 
-      <div class="flex flex-row space-x-36 justify-center mt-8 mb-8">
+      <div x-data="{ isSizeVisible: false }" class="flex flex-row space-x-36 justify-center mt-8 mb-8">
         <!-- Div para imagem do produto -->
         <div>
-          <img
-            style="width: 40rem;"
-            class="rounded-lg"
-            :src="'{{ request.scheme }}://{{ request.get_host }}' + product.image"
-            x-bind:alt="product.name"
-          >
+          <img style="width: 40rem;" class="rounded-lg"
+            :src="'{{ request.scheme }}://{{ request.get_host }}' + product.image" x-bind:alt="product.name">
         </div>
 
         <!-- Div para detalhes do produto -->
         <div>
-          <h2
-            class="font-bold text-lg"
-            x-text="product.name"
-          ></h2>
+          <h2 class="font-bold text-lg" x-text="product.name"></h2>
 
           <p class="pt-4">Preço: <span x-text="product.price"></span></p>
           <h3 class="text-lg mt-8">Cor</h3>
 
           <div class="flex gap-2 mt-4">
             <template x-for="color in product.colors">
-              <div>
-                <div
-                  class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
-                  :class="'bg-'+color.color+'-600'"
-                ></div>
+              <div x-on:click.toggle="isSizeVisible = !isSizeVisible">
+                <a href="#">
+                  <div id="color" class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
+                    :class="'bg-'+color.color+'-600'"></div>
+                </a>
               </div>
             </template>
           </div>
 
           <div class="flex gap-2 mt-4">
+
             <template x-for="size in sizes">
-              <div
-                class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
-                x-text="size"
-              >
-              </div>
+              <div id="size" class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
+                x-text="size" x-show="isSizeVisible"></div>
+
+              <!-- <div id="size" class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center" x-text="size"></div> -->
             </template>
           </div>
 
