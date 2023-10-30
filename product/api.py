@@ -21,6 +21,7 @@ def product(request, product_id: str):
     product = get_object_or_404(Product, id=product_id)
     return product
 
+
 @api.post('/upload', url_name='upload')
 def upload(request, file: UploadedFile = File(...)):
     data = file.read().decode()

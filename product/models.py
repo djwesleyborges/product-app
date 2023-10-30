@@ -42,10 +42,20 @@ class Product(models.Model):
 
     size = models.ManyToManyField(Size, verbose_name=_('Sizes'))
 
-    image = models.ImageField(upload_to='')
+    # image = models.ImageField(upload_to='')
 
     def __str__(self):
         return self.name
 
     def __repr__(self):
         return f'<Product name={self.name} />'
+
+
+class Image(models.Model):
+    name = models.CharField(max_length=250)
+    size = models.ForeignKey(Size, on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='image')
+    image = models.ImageField(upload_to='')
+
+    def __str__(self):
+        return self.name
