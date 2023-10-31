@@ -3,10 +3,19 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI, File
 from ninja.files import UploadedFile
-from product.models import Product
-from product.schema import ProductSchema, NotFoundSchema
+from product.models import Product, Image
+from product.schema import ProductSchema, NotFoundSchema, ImageSchema
 
 api = NinjaAPI()
+
+
+@api.get('/product/{product_id}/image/', response=List[ImageSchema])
+def products_images(request, product_id: int, size: str = None):
+    if size:
+        product = get_object_or_404(Product, pk=product_id)
+        images = Image.objects.filter(product=product, size__size=size)
+        return images
+    return Image.objects.filter(product=product)
 
 
 @api.get('/product', response=List[ProductSchema])

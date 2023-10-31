@@ -17,9 +17,6 @@ class Size(models.Model):
 
 
 class Product(models.Model):
-    class Meta:
-        verbose_name = _('Product')
-        verbose_name_plural = _('Products')
 
     name = models.CharField(
         max_length=100,
@@ -43,6 +40,10 @@ class Product(models.Model):
     size = models.ManyToManyField(Size, verbose_name=_('Sizes'))
 
     # image = models.ImageField(upload_to='')
+
+    class Meta:
+        verbose_name = _('Product')
+        verbose_name_plural = _('Products')
 
     def __str__(self):
         return self.name
