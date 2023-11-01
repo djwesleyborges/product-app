@@ -13,7 +13,7 @@
     <title>Produto</title>
 </head>
 
-<body class="bg-gray-300">
+<body class="bg-gray-100">
 
     <nav class="menu">
         <a href="#">Produto</a>
@@ -36,7 +36,6 @@
 
             <!-- Div para detalhes do produto -->
             <div>
-
                 <!-- Nome do produto -->
                 <h2 class="font-bold text-lg" x-text="product.name"></h2>
 
@@ -47,9 +46,9 @@
                 <h3 class="text-lg mt-8">Cor</h3>
                 <div class="flex gap-2 mt-4">
                     <template x-for="color in product.colors">
-                        <div x-on:click.toggle="isSizeVisible = !isSizeVisible">
-                            <a href="#">
-                                <div id="color" class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
+                        <div><a href="#">
+                                <div @click="getImageColor(color, product.id)" id="color"
+                                    class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
                                     :class="'bg-'+color.color+'-600'"></div>
                             </a>
                         </div>
@@ -60,7 +59,7 @@
                     <template x-for="size in product.size">
                         <div @click="getProduct(size, product.id)" id="size"
                             class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
-                            x-text="size.size" x-on:click="selectedSize = size; isSizeVisible = false;"></div>
+                            x-text="size.size"></div>
                     </template>
                 </div>
             </div>

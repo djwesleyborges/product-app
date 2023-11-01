@@ -17,7 +17,7 @@ class SizeSchema(ModelSchema):
 class ImageSchema(ModelSchema):
     class Config:
         model = Image
-        model_fields = ('name', 'size', 'product', 'image')
+        model_fields = ('size', 'product', 'image', 'color')
 
 
 class ProductSchema(ModelSchema):

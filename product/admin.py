@@ -11,7 +11,7 @@ admin.site.register(models.Size)
 
 
 class ImageProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image_tag']
+    list_display = ['image_tag']
 
     def image_tag(self, obj):
         return format_html(

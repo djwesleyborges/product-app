@@ -3,7 +3,7 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI, File
 from ninja.files import UploadedFile
-from product.models import Product, Image
+from product.models import Product, Image, Color
 from product.schema import ProductSchema, NotFoundSchema, ImageSchema
 
 api = NinjaAPI()
@@ -15,6 +15,15 @@ def products_images(request, productId: int, size: str):
         product = get_object_or_404(Product, pk=productId)
         images = Image.objects.filter(product=product, size__size=size)
         return images
+    return Image.DoesNotExist()
+
+
+@api.get('/product/{int:productId}/color/{str:color}', response=List[ImageSchema])
+def get_product_by_color(request, productId: int, color: str):
+    if color:
+        product = get_object_or_404(Product, pk=productId)
+        image = Image.objects.filter(product=product, color__color=color)
+        return image
     return Image.DoesNotExist()
 
 

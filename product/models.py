@@ -53,10 +53,10 @@ class Product(models.Model):
 
 
 class Image(models.Model):
-    name = models.CharField(max_length=250)
     size = models.ForeignKey(Size, on_delete=models.PROTECT)
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='image')
     image = models.ImageField(upload_to='')
+    color = models.ForeignKey(Color, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.name
+        return self.product.name
