@@ -15,30 +15,36 @@
 
 <body class="bg-gray-300">
 
-    <div class="menu">
+    <nav class="menu">
         <a href="#">Produto</a>
-    </div>
+    </nav>
 
-    <div x-data="getItems" class="m-8">
+
+
+    <div x-data="getItems" class="m-8 flex justify-center">
+
+        <!-- Div para imagem do produto -->
+        <!-- img inicio -->
+        <div class="w-72 h-72 m-8">
+            <img id="imgChange" class="rounded-lg"
+                :src="'{{ request.scheme }}://{{ request.get_host }}/' + product.image[0].image"
+                x-bind:alt="product.name">
+        </div>
+        <!-- img fim -->
 
         <template x-for="product in filteredItems" :key="product.id">
-            <!-- Div para imagem do produto -->
-            <template x-for="image in product.image">
-                <!-- img inicio -->
-                <div class="w-36 h-36 m-8">
-                    <img class="rounded-lg" :src="'{{ request.scheme }}://{{ request.get_host }}' + image.image" x-bind:alt="product.name">
-                  </div>
-                <!-- img fim -->
-            </template>
-
 
             <!-- Div para detalhes do produto -->
             <div>
+
+                <!-- Nome do produto -->
                 <h2 class="font-bold text-lg" x-text="product.name"></h2>
 
+                <!-- Preço -->
                 <p class="pt-4">Preço: <span x-text="product.price"></span></p>
-                <h3 class="text-lg mt-8">Cor</h3>
 
+                <!-- Gera os botoes de cores -->
+                <h3 class="text-lg mt-8">Cor</h3>
                 <div class="flex gap-2 mt-4">
                     <template x-for="color in product.colors">
                         <div x-on:click.toggle="isSizeVisible = !isSizeVisible">
@@ -49,25 +55,18 @@
                         </div>
                     </template>
                 </div>
-
+                <!-- Gera os botoes de tamanhos(size) -->
                 <div class="flex gap-2 mt-4">
-
-                    <template x-for="size in sizes">
-                        <div id="size"
+                    <template x-for="size in product.size">
+                        <div @click="getProduct(size, product.id)" id="size"
                             class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
-                            x-text="size" x-on:click="selectedSize = size; isSizeVisible = false;"></div>
-
-
-                        <!-- <div id="size" class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center" x-text="size"></div> -->
+                            x-text="size.size" x-on:click="selectedSize = size; isSizeVisible = false;"></div>
                     </template>
                 </div>
-
-                <button class="bg-green-500 hover:bg-green-600 rounded-lg p-2 mt-4">Fazer Compra</button>
             </div>
-
+        </template>
     </div>
 
-    </template>
 
     </div>
 
