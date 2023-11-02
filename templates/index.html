@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div
+    x-data="getItems"
+    class="m-8 flex justify-center"
+  >
+
+    <!-- Div para imagem do produto -->
+    <!-- img inicio -->
+    <div class="w-72 h-72 m-8">
+      <img
+        id="imgChange"
+        class="rounded-lg"
+        :src="'{{ request.scheme }}://{{ request.get_host }}/' + product.image[0].image"
+        x-bind:alt="product.name"
+      >
+    </div>
+    <!-- img fim -->
+
+    <template
+      x-for="product in filteredItems"
+      :key="product.id"
+    >
+
+      <!-- Div para detalhes do produto -->
+      <div>
+        <!-- Nome do produto -->
+        <h2
+          class="font-bold text-lg"
+          x-text="product.name"
+        ></h2>
+
+        <!-- Preço -->
+        <p class="pt-4">Preço: <span x-text="product.price"></span></p>
+
+        <!-- Gera os botoes de cores -->
+        <h3 class="text-lg mt-8">Cor</h3>
+        <div class="flex gap-2 mt-4">
+          <template x-for="color in product.colors">
+            <div><a href="#">
+                <div
+                  @click="getImageColor(color, product.id)"
+                  id="color"
+                  class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
+                  :class="'bg-'+color.color+'-600'"
+                ></div>
+              </a>
+            </div>
+          </template>
+        </div>
+        <!-- Gera os botoes de tamanhos(size) -->
+        <div class="flex gap-2 mt-4">
+          <template x-for="size in product.size">
+            <div
+              @click="getProduct(size, product.id)"
+              id="size"
+              class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
+              x-text="size.size"
+            ></div>
+          </template>
+        </div>
+      </div>
+    </template>
+  </div>
+{% endblock content %}
+
+{% block js %}
+  <script src="{% static 'js/product.js' %}"></script>
+{% endblock js %}
