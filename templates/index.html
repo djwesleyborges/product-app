@@ -11,9 +11,8 @@
     <!-- img inicio -->
     <div class="w-72 h-72 m-8">
       <img
-        id="imgChange"
         class="rounded-lg"
-        :src="'{{ request.scheme }}://{{ request.get_host }}/'+image"
+        :src="currentImage"
       >
     </div>
     <!-- img fim -->
