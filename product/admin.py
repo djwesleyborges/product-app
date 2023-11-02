@@ -1,15 +1,9 @@
-from product import models
+from product.models import Color, Image, Product, Size
 from django.contrib import admin
 from django.utils.html import format_html
 
-# admin.site.register(models.Product)
-admin.site.register(models.Color)
-admin.site.register(models.Size)
 
-
-# admin.site.register(models.Image)
-
-
+@admin.register(Image)
 class ImageProductAdmin(admin.ModelAdmin):
     list_display = ['image_tag']
 
@@ -20,12 +14,13 @@ class ImageProductAdmin(admin.ModelAdmin):
 
 
 class ImageInline(admin.TabularInline):
-    model = models.Image
+    model = Image
 
 
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ImageInline]
 
 
-admin.site.register(models.Product, ProductAdmin)
-admin.site.register(models.Image, ImageProductAdmin)
+admin.site.register(Color)
+admin.site.register(Size)
