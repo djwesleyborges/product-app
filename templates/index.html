@@ -13,8 +13,7 @@
       <img
         id="imgChange"
         class="rounded-lg"
-        :src="'{{ request.scheme }}://{{ request.get_host }}/' + product.image[0].image"
-        x-bind:alt="product.name"
+        :src="'{{ request.scheme }}://{{ request.get_host }}/'+filteredItems[0].image[0].image"
       >
     </div>
     <!-- img fim -->
