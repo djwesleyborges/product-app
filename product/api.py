@@ -3,8 +3,9 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI, File
 from ninja.files import UploadedFile
-from product.models import Product, Image, Color
+from product.models import Product, Image
 from product.schema import ProductSchema, NotFoundSchema, ImageSchema
+
 
 api = NinjaAPI()
 
@@ -25,13 +26,6 @@ def get_product_by_color(request, productId: int, color: str):
         image = Image.objects.filter(product=product, color__color=color)
         return image
     return Image.DoesNotExist()
-
-
-@api.get('/product', response=List[ProductSchema])
-def products(request, name: Optional[str] = None):
-    if name:
-        return Product.objects.filter(name__icontains=name)
-    return Product.objects.all()
 
 
 @api.get('/product', response=List[ProductSchema])
