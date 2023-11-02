@@ -13,7 +13,7 @@
       <img
         id="imgChange"
         class="rounded-lg"
-        :src="'{{ request.scheme }}://{{ request.get_host }}/'+filteredItems[0].image[0].image"
+        :src="'{{ request.scheme }}://{{ request.get_host }}/'+image"
       >
     </div>
     <!-- img fim -->
@@ -38,7 +38,8 @@
         <h3 class="text-lg mt-8">Cor</h3>
         <div class="flex gap-2 mt-4">
           <template x-for="color in product.colors">
-            <div><a href="#">
+            <div>
+              <a href="#">
                 <div
                   @click="getImageColor(color, product.id)"
                   id="color"

@@ -1,4 +1,5 @@
 const getItems = () => ({
+  image: '',
   filteredItems: [],
   sizes: ['P', 'M', 'G', 'GG'],
   currentImage: '',
@@ -10,6 +11,7 @@ const getItems = () => ({
   getData() {
     axios.get('/api/v1/product')
       .then(response => {
+        this.image = response.data[0].image[0].image
         this.filteredItems = response.data
       })
   },
