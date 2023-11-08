@@ -2,6 +2,7 @@ const getItems = () => ({
   filteredItems: [],
   sizes: ['P', 'M', 'G', 'GG'],
   currentImage: '',
+  currentSize: '',
 
   init() {
     this.getData()
@@ -16,17 +17,27 @@ const getItems = () => ({
       })
   },
 
-  getProduct(size, productId) {
+  getProductImage(size, productId) {
     axios.get(`/api/v1/product/${productId}/image/${size.size}`)
       .then(response => {
         this.currentImage = response.data[0].image
       })
   },
 
-  getImageColor(color, productId) {
+  // getImageColor(color, productId) {
+  //   axios.get(`/api/v1/product/${productId}/color/${color.color}`)
+  //     .then(response => {
+  //       console.log(response)
+  //       this.currentImage = response.data[0].image
+  //     })
+  // },
+
+  getSize(color, productId) {
     axios.get(`/api/v1/product/${productId}/color/${color.color}`)
       .then(response => {
-        this.currentImage = response.data[0].image
+        console.log(response.data[0].size)
+        this.currentSize = response.data[0].size
+        console.log(`currentSize = ${this.currentSize}`)
       })
   },
 })

@@ -3,9 +3,9 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI, File
 from ninja.files import UploadedFile
-from product.models import Product, Image
-from product.schema import ProductSchema, NotFoundSchema, ImageSchema
-
+from product.models import Product, Image, Color
+from product.schema import ProductSchema, NotFoundSchema, ImageSchema, SizeSchema, \
+    ColorSchema
 
 api = NinjaAPI()
 
@@ -19,13 +19,23 @@ def products_images(request, productId: int, size: str):
     return Image.DoesNotExist()
 
 
-@api.get('/product/{int:productId}/color/{str:color}', response=List[ImageSchema])
-def get_product_by_color(request, productId: int, color: str):
+# @api.get('/product/{int:productId}/color/{str:color}', response=List[ImageSchema])
+# def get_product_by_color(request, productId: int, color: str):
+#     if color:
+#         product = get_object_or_404(Product, pk=productId)
+#         image = Image.objects.filter(product=product, color__color=color)
+#         return image
+#     return Image.DoesNotExist()
+
+
+@api.get('/product/{int:productId}/color/{str:color}', response=List[ColorSchema])
+def get_product_by_color_size(request, productId: int, color: str):
     if color:
         product = get_object_or_404(Product, pk=productId)
-        image = Image.objects.filter(product=product, color__color=color)
-        return image
-    return Image.DoesNotExist()
+        color = Color.objects.get(color=color).id
+        color = Color.objects.filter(product=product, pk=color)
+        return color
+    return Color.DoesNotExist()
 
 
 @api.get('/product', response=List[ProductSchema])

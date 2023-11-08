@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 class Color(models.Model):
     color = models.CharField(_('Color Name'), max_length=100)
+    size = models.ManyToManyField(to='Size', verbose_name=_('Sizes'))
 
     def __str__(self):
         return self.color
@@ -35,7 +36,6 @@ class Product(models.Model):
     )
 
     colors = models.ManyToManyField(Color, verbose_name=_('Colors'))
-    size = models.ManyToManyField(Size, verbose_name=_('Sizes'))
 
     class Meta:
         verbose_name = _('Product')
@@ -49,10 +49,11 @@ class Product(models.Model):
 
 
 class Image(models.Model):
-    size = models.ForeignKey(Size, on_delete=models.PROTECT)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='image')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='image')
     image = models.ImageField(upload_to='')
     color = models.ForeignKey(Color, on_delete=models.PROTECT)
+    size = models.ForeignKey(Size, on_delete=models.PROTECT)
+
 
     def __str__(self):
         return self.product.name
