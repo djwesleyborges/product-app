@@ -1,6 +1,7 @@
 const getItems = () => ({
   filteredItems: [],
-  sizes: ['P', 'M', 'G', 'GG'],
+  colors: [],
+  sizes: [],
   currentImage: '',
   currentSize: '',
 
@@ -9,11 +10,13 @@ const getItems = () => ({
   },
 
   getData() {
-    axios.get('/api/v1/product')
+    axios.get('/api/v1/product/colors/')
       .then(response => {
-        const image = response.data[0].image[0].image
-        this.currentImage = `http://localhost:8000/${image}`
-        this.filteredItems = response.data
+        this.colors = response.data
+        console.log(this.colors)
+        // const image = response.data[0].image[0].image
+        // this.currentImage = `http://localhost:8000/${image}`
+        // this.filteredItems = response.data
       })
   },
 
@@ -32,12 +35,14 @@ const getItems = () => ({
   //     })
   // },
 
-  getSize(color, productId) {
-    axios.get(`/api/v1/product/${productId}/color/${color.color}`)
-      .then(response => {
-        console.log(response.data[0].size)
-        this.currentSize = response.data[0].size
-        console.log(`currentSize = ${this.currentSize}`)
-      })
+  getSize(color) {
+    console.log(color)
+    // Objetivo: retornar somente os tamanhos de cada cor.
+    // axios.get(`/api/v1/product/${productId}/color/${color.color}`)
+    //   .then(response => {
+    //     console.log(response.data[0].size)
+    //     this.currentSize = response.data[0].size
+    //     console.log(`currentSize = ${this.currentSize}`)
+    //   })
   },
 })

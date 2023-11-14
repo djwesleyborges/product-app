@@ -1,4 +1,6 @@
 from ninja import Schema, ModelSchema
+from ninja.orm import create_schema
+
 from product.models import Product, Color, Size, Image
 
 
@@ -8,12 +10,14 @@ class SizeSchema(ModelSchema):
         model_fields = ('size',)
 
 
-class ColorSchema(ModelSchema):
-    size: list[SizeSchema] = None
+ColorSchema = create_schema(Color, fields=('color',))
 
-    class Config:
-        model = Color
-        model_fields = ('color',)
+# class ColorSchema(ModelSchema):
+#     size: list[SizeSchema] = None
+
+#     class Config:
+#         model = Color
+#         model_fields = ('color',)
 
 
 class ImageSchema(ModelSchema):

@@ -5,19 +5,19 @@ from product.models import Product, Image, Color, Size
 
 IMAGES = (
     {
-        'color': 'Amarelo',
+        'color': 'yellow',
         'sizes': ['P', 'M', 'G', 'GG']
     },
     {
-        'color': 'Azul',
+        'color': 'blue',
         'sizes': ['P', 'M', 'G']
     },
     {
-        'color': 'Preto',
+        'color': 'black',
         'sizes': ['P', 'M']
     },
     {
-        'color': 'Vermelho',
+        'color': 'red',
         'sizes': ['M', 'G']
     },
 )

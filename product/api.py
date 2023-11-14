@@ -10,6 +10,21 @@ from product.schema import ProductSchema, NotFoundSchema, ImageSchema, SizeSchem
 api = NinjaAPI()
 
 
+@api.get('/product/colors/', response=List[ColorSchema])
+def products_images(request):
+    return Color.objects.all()
+
+
+'''
+Dica: para retornar os tamanhos de cada cor, monte um dicionário:
+{
+    'red': ['P', 'M'],
+    'yellow': ['P', 'M', 'G', 'GG'],
+}
+return ['P', 'M', 'G', 'GG']
+'''
+
+
 @api.get('/product/{int:productId}/image/{str:size}', response=List[ImageSchema])
 def products_images(request, productId: int, size: str):
     if size:
@@ -17,15 +32,6 @@ def products_images(request, productId: int, size: str):
         images = Image.objects.filter(product=product, size__size=size)
         return images
     return Image.DoesNotExist()
-
-
-# @api.get('/product/{int:productId}/color/{str:color}', response=List[ImageSchema])
-# def get_product_by_color(request, productId: int, color: str):
-#     if color:
-#         product = get_object_or_404(Product, pk=productId)
-#         image = Image.objects.filter(product=product, color__color=color)
-#         return image
-#     return Image.DoesNotExist()
 
 
 @api.get('/product/{int:productId}/color/{str:color}', response=List[ColorSchema])
