@@ -35,8 +35,6 @@ class Product(models.Model):
         blank=False
     )
 
-    colors = models.ManyToManyField(Color, verbose_name=_('Colors'))
-
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Products')
@@ -53,7 +51,6 @@ class Image(models.Model):
     image = models.ImageField(upload_to='')
     color = models.ForeignKey(Color, on_delete=models.PROTECT)
     size = models.ForeignKey(Size, on_delete=models.PROTECT)
-
 
     def __str__(self):
         return self.product.name
