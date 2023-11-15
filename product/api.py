@@ -3,45 +3,32 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI, File
 from ninja.files import UploadedFile
-from product.models import Product, Image, Color
-from product.schema import ProductSchema, NotFoundSchema, ImageSchema, SizeSchema, \
-    ColorSchema
+from product.models import Product, Image, Color, Size
+from product.schema import (
+    ProductSchema, NotFoundSchema, ImageSchema,
+    ColorSchema, SizeImageSchema
+)
 
 api = NinjaAPI()
 
 
 @api.get('/product/colors/', response=List[ColorSchema])
-def products_images(request):
+def colors(request):
     return Color.objects.all()
 
 
-'''
-Dica: para retornar os tamanhos de cada cor, monte um dicionário:
-{
-    'red': ['P', 'M'],
-    'yellow': ['P', 'M', 'G', 'GG'],
-}
-return ['P', 'M', 'G', 'GG']
-'''
+@api.get('/product/{color}/sizes/', response=List[SizeImageSchema])
+def get_sizes(request, color: str):
+    color = get_object_or_404(Color, color=color)
+    sizes = Image.objects.filter(color__color=color).distinct()
+    return sizes
 
 
-@api.get('/product/{int:productId}/image/{str:size}', response=List[ImageSchema])
-def products_images(request, productId: int, size: str):
-    if size:
-        product = get_object_or_404(Product, pk=productId)
-        images = Image.objects.filter(product=product, size__size=size)
-        return images
-    return Image.DoesNotExist()
-
-
-@api.get('/product/{int:productId}/color/{str:color}', response=List[ColorSchema])
-def get_product_by_color_size(request, productId: int, color: str):
-    if color:
-        product = get_object_or_404(Product, pk=productId)
-        color = Color.objects.get(color=color).id
-        color = Color.objects.filter(product=product, pk=color)
-        return color
-    return Color.DoesNotExist()
+@api.get('/product/{color}/{size}/image/', response=ImageSchema)
+def get_product_by_color_size(request, color: str, size: str):
+    color = get_object_or_404(Color, color=color)
+    size = get_object_or_404(Size, size=size)
+    return Image.objects.filter(color=color, size=size).first()
 
 
 @api.get('/product', response=List[ProductSchema])

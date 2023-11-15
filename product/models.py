@@ -4,7 +4,6 @@ from django.utils.translation import gettext_lazy as _
 
 class Color(models.Model):
     color = models.CharField(_('Color Name'), max_length=100)
-    size = models.ManyToManyField(to='Size', verbose_name=_('Sizes'))
 
     def __str__(self):
         return self.color

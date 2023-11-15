@@ -12,7 +12,7 @@
   <div class="w-72 h-72 m-8">
     <img
       class="rounded-lg"
-      :src="currentImage"
+      :src="currentImage.image"
     >
   </div>
   <!-- img fim -->
@@ -22,36 +22,44 @@
       <div>
         <a href="#">
           <div
-            @click="getSize(color)"
             id="color"
             class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
-            :class="'bg-'+color.color+'-500'"
+            :class="color.color === 'black' ? 'bg-black' : 'bg-'+color.color+'-500'"
+            @click="getSize(color.color)"
           ></div>
         </a>
       </div>
     </template>
   </div>
+
+  <div class="flex gap-2 mt-4">
+    <template x-for="size in sizes">
+      <!-- x-show="size.size.size" -->
+      <div
+        id="size"
+        class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
+        x-text="size.size.size"
+        @click="getProductImage(size)"
+      >
+      </div>
+    </template>
+  </div>
+
   <div>
-    <template
-      x-for="product in filteredItems"
-      :key="product.id"
-    >
+    <div>
+      <!-- Div para detalhes do produto -->
       <div>
-        <!-- Div para detalhes do produto -->
-        <div>
-          <!-- Nome do produto -->
-          <h2
-            class="font-bold text-lg"
-            x-text="product.name"
-          ></h2>
+        <!-- 'bg-'+color.color+'-500' -->
+        <!-- Nome do produto -->
+        <h2 class="font-bold text-lg">Nome</h2>
 
-          <!-- Preço -->
-          <p class="pt-4">Preço: <span x-text="product.price"></span></p>
+        <!-- Preço -->
+        <p class="pt-4">Preço: <span>0,00</span></p>
 
-          <!-- Gera os botoes de cores -->
-          <h3 class="text-lg mt-8">Cor</h3>
-          <!-- Não usar mais -->
-          <!-- <div class="flex gap-2 mt-4">
+        <!-- Gera os botoes de cores -->
+        <h3 class="text-lg mt-8">Cor</h3>
+        <!-- Não usar mais -->
+        <!-- <div class="flex gap-2 mt-4">
             <template x-for="color in colors">
               <div>
                 <a href="#">
@@ -63,22 +71,10 @@
               </div>
             </template>
           </div> -->
-        </div>
-        <!-- Gera os botoes de tamanhos(size) -->
-        <div class="flex gap-2 mt-4">
-          <template x-for="size in currentSize">
-            <div
-              x-show="size.size"
-              @click="getProductImage(size, product.id)"
-              id="size"
-              class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
-              x-text="size.size"
-            >
-            </div>
-          </template>
-        </div>
       </div>
-    </template>
+      <!-- Gera os botoes de tamanhos(size) -->
+
+    </div>
 
   </div>
 
