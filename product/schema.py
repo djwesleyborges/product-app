@@ -8,13 +8,6 @@ ColorSchema = create_schema(Color, fields=('color',))
 
 SizeImageSchema = create_schema(Image, depth=1, fields=('size',))
 
-# class ColorSchema(ModelSchema):
-#     size: list[SizeSchema] = None
-
-#     class Config:
-#         model = Color
-#         model_fields = ('color',)
-
 
 class ImageSchema(ModelSchema):
     class Config:
