@@ -2,72 +2,79 @@
 {% load static %}
 
 {% block content %}
-<div x-data="getItems" class="m-8 flex justify-center">
+    <div x-data="getItems">
+        <div class="m-8 flex flex-row justify-center">
+            <div class="flex flex-col">
+                <!-- Div para imagem do produto -->
+                <div class="w-72 h-72 m-8">
+                    <img class="rounded-lg" :src="currentImage.image">
+                </div>
+                <!-- img fim -->
+            </div>
+            <div class="flex flex-col justify-items-center">
 
-  <!-- Div para imagem do produto -->
-  <!-- img inicio -->
-  <div class="w-72 h-72 m-8">
-    <img class="rounded-lg" :src="currentImage.image">
-  </div>
-  <!-- img fim -->
+                <div class="flex flex-row">
+                    <div>
+                        <!-- Div para detalhes do produto -->
+                        <div>
+                            <!-- Nome do produto -->
+                            <h2 class="font-bold text-lg">Nome</h2>
+                            <!-- Preço -->
+                            <p class="pt-4">Preço: <span>0,00</span></p>
+                            <!-- Gera os botoes de cores -->
+                            <h3 class="text-lg mt-8">Cor</h3>
+                        </div>
+                        <!-- Gera os botoes de tamanhos(size) -->
+                    </div>
+                </div>
 
-  <div class="flex gap-2 mt-4">
-    <template x-for="color in colors">
-      <div>
-        <a href="#">
-          <div id="color" class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
-            :class="color.color === 'black' ? 'bg-black' : 'bg-'+color.color+'-500'" @click="getSize(color.color)">
-          </div>
-        </a>
-      </div>
-    </template>
-  </div>
+                <div class="flex flex-row">
+                    <div class="flex gap-2 mt-4">
+                        <template x-for="color in colors">
+                            <div>
+                                <a href="#">
+                                    <div id="color"
+                                         class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
+                                         :class="color.color === 'black' ? 'bg-black' : 'bg-'+color.color+'-500'"
+                                         @click="getSize(color.color)">
+                                    </div>
+                                </a>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex flex-row gap-2 mt-4">
+                        <template x-for="size in sizes">
+                            <!-- x-show="size.size.size" -->
+                            <div id="size"
+                                 class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
+                                 x-text="size.size" @click="getProductImage(size)">
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Produtos Similares-->
+        <div class="flex flex-row justify-center">
+            <div class="w-1/3 m-8">
+                <p class="flex justify-center font-bold text-lg">Produtos Similares</p>
+            </div>
+        </div>
 
-  <div class="flex gap-2 mt-4">
-    <template x-for="size in sizes">
-      <!-- x-show="size.size.size" -->
-      <div id="size" class="pt-2 text-white bg-gray-500 hover:bg-gray-800 w-10 h-10 rounded-xl text-center"
-        x-text="size.size" @click="getProductImage(size)">
-      </div>
-    </template>
-  </div>
-
-  <div>
-    <div>
-      <!-- Div para detalhes do produto -->
-      <div>
-        <!-- 'bg-'+color.color+'-500' -->
-        <!-- Nome do produto -->
-        <h2 class="font-bold text-lg">Nome</h2>
-
-        <!-- Preço -->
-        <p class="pt-4">Preço: <span>0,00</span></p>
-
-        <!-- Gera os botoes de cores -->
-        <h3 class="text-lg mt-8">Cor</h3>
-        <!-- Não usar mais -->
-        <!-- <div class="flex gap-2 mt-4">
-            <template x-for="color in colors">
-              <div>
-                <a href="#">
-                  um
-                  <div @click="getSize(color, product.id)" id="color"
-                    class="w-10 h-10 rounded-full hover:right hover:ring-4 hover:ring-black"
-                    :class="'bg-'+color.color+'-600'" x-text="color.color"></div>
-                </a>
-              </div>
-            </template>
-          </div> -->
-      </div>
-      <!-- Gera os botoes de tamanhos(size) -->
-
+        <div class="flex flex-row justify-center">
+            <div class="flex gap-2 mt-4">
+                <template x-for="product in similarProducts">
+                    <img class="rounded-lg produto-imagem" :src="product.image">
+                    <p x-text="product.name"></p>
+                </template>
+            </div>
+        </div>
+        <!--Fim produtos similares-->
     </div>
-
-  </div>
-
-</div>
 {% endblock content %}
 
 {% block js %}
-<script src="{% static 'js/product.js' %}"></script>
+    <script src="{% static 'js/product.js' %}"></script>
 {% endblock js %}
