@@ -3,10 +3,9 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI, File
 from ninja.files import UploadedFile
-from product.models import Product, Image, Color, Size
+from product.models import Product, Color, Size
 from product.schema import (
-    ProductSchema, NotFoundSchema, ImageSchema,
-    ColorSchema, SizeImageSchema
+    ProductSchema, NotFoundSchema, ColorSchema, SizeSchema
 )
 
 api = NinjaAPI()
@@ -17,18 +16,19 @@ def colors(request):
     return Color.objects.all()
 
 
-@api.get('/product/{color}/sizes/', response=List[SizeImageSchema])
+@api.get('/product/{color}/sizes/', response=List[SizeSchema])
 def get_sizes(request, color: str):
     color = get_object_or_404(Color, color=color)
-    sizes = Image.objects.filter(color__color=color).distinct()
+    sizes = Size.objects.filter(product__color=color).distinct()
+    #sizes = Product.objects.filter(color__color=color).distinct()
     return sizes
 
 
-@api.get('/product/{color}/{size}/image/', response=ImageSchema)
+@api.get('/product/{color}/{size}/image/', response=ProductSchema)
 def get_product_by_color_size(request, color: str, size: str):
     color = get_object_or_404(Color, color=color)
     size = get_object_or_404(Size, size=size)
-    return Image.objects.filter(color=color, size=size).first()
+    return Product.objects.filter(color=color, size=size).first()
 
 
 @api.get('/product', response=List[ProductSchema])

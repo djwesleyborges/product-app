@@ -1,27 +1,18 @@
 from ninja import Schema, ModelSchema
 from ninja.orm import create_schema
 
-from product.models import Product, Color, Size, Image
+from product.models import Product, Color, Size
 
-
+# SizeImageSchema = create_schema(Product, depth=1, fields=('size',))
 ColorSchema = create_schema(Color, fields=('color',))
-
-SizeImageSchema = create_schema(Image, depth=1, fields=('size',))
-
-
-class ImageSchema(ModelSchema):
-    class Config:
-        model = Image
-        model_fields = ('product', 'image', 'color')
+SizeSchema = create_schema(Size, depth=1, fields=('size',))
 
 
 class ProductSchema(ModelSchema):
-    colors: list[ColorSchema] = None
-    image: list[ImageSchema] = None
 
     class Config:
         model = Product
-        model_fields = ('id', 'name', 'price',)
+        model_fields = ('id', 'name', 'price', 'image', 'color', 'size')
 
 
 class NotFoundSchema(Schema):

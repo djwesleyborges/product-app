@@ -1,26 +1,18 @@
-from product.models import Color, Image, Product, Size
+from product.models import Color, Product, Size
 from django.contrib import admin
 from django.utils.html import format_html
 
 
-@admin.register(Image)
-class ImageProductAdmin(admin.ModelAdmin):
-    list_display = ['image_tag']
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['image_tag', 'name', 'price', 'image', 'color', 'size']
+    extra = 0
 
-    def image_tag(self, obj):
+    @staticmethod
+    def image_tag(obj):
         return format_html(
             '<img src="{}" style="max-width:200px; max-height:200px"/>'.format(
                 obj.image.url))
-
-
-class ImageInline(admin.TabularInline):
-    model = Image
-    extra = 0
-
-
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
-    inlines = [ImageInline]
 
 
 admin.site.register(Color)

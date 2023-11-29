@@ -25,11 +25,10 @@ const getItems = () => ({
   },
 
   getProductImage(size) {
-    this.selectedSize = size.size.size
+    this.selectedSize = size.size
     axios.get(`/api/v1/product/${this.selectedColor}/${this.selectedSize}/image/`)
       .then(response => {
         this.currentImage = response.data
-        console.log(this.currentImage)
       })
   },
 })
