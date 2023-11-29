@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-row justify-center m-20">
             <div class="flex gap-2 mt-4">
                 <template x-for="product in similarProducts">
                     <img class="rounded-lg produto-imagem" :src="product.image">
@@ -72,6 +72,81 @@
             </div>
         </div>
         <!--Fim produtos similares-->
+
+        <!--Table Form Produtos-->
+        <div class="flex flex-row justify-center">
+            <form class="w-full max-w-sm">
+
+                <!-- Conteudo do card -->
+                <table class="border-collapse w-full border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+                    <thead class="bg-slate-50 dark:bg-slate-700">
+                    <tr>
+                        <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">
+                            Produto
+                        </th>
+                        <th class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">
+                            Quantidade
+                        </th>
+                        <th colspan="2">Subtotal</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <div class="control">
+                                <div class="select">
+                                    <select class="bg-gray-200 text-gray-900 text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white">
+                                        <option value="">----</option>
+                                        <option value="">----</option>
+                                        <!--<option></option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="md:flex md:items-center mb-6">
+                                <div class="p-1">
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                           id="quantidade" type="number"
+                                           placeholder="Quantidade">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="md:flex md:items-center mb-6">
+                                <div class="p-1">
+                                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                                           id="quantidade" type="number"
+                                           placeholder="Quantidade">
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <i class="fa fa-times has-text-danger"></i>
+                        </td>
+                        <td class="has-text-right">R$20</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!-- END card -->
+                <div class="columns m-3">
+                    <div class="column">
+                        <button class="button is-primary" type="button" @click="addRow">
+                            Adicionar
+                        </button>
+                        <button class="button is-info ml-3" type="submit">Salvar
+                        </button>
+                    </div>
+                    <div class="column px-3">
+                        <span class="title has-text-weight-bold">TOTAL</span>
+                        <span class="title has-text-weight-bold" x-text="total"
+                              x-text="total"></span>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
+
     </div>
 {% endblock content %}
 
