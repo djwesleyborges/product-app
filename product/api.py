@@ -44,10 +44,8 @@ def product(request, product_id: str):
     return product
 
 
-@api.post('/upload', url_name='upload')
-def upload(request, file: UploadedFile = File(...)):
-    data = file.read().decode()
-    return {
-        'name': file.name,
-        'data': data
-    }
+@api.get('/products/{color}/{size}/', response=List[ProductSchema])
+def get_similar_products(request, color: str, size: str):
+    color = get_object_or_404(Color, color=color)
+    size = get_object_or_404(Size, size=size)
+    return Product.objects.filter(color=color, size=size)
