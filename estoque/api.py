@@ -7,6 +7,7 @@ from .schema import EstoqueSchema, EstoqueEntradaSchema, EstoqueSaidaSchema, Est
 
 api = NinjaAPI()
 
+
 @api.get('/estoque-entrada', response=List[EstoqueEntradaSchema])
 def estoque_entrada(request):
     ...
