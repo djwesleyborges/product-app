@@ -1,0 +1,2 @@
+from .estoque_entrada_manager import EstoqueEntradaManager
+from .estoque_saida_manager import EstoqueSaidaManager
