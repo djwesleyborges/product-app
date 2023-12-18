@@ -1,8 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.urls import reverse_lazy
 
-from core.managers import EstoqueEntradaManager, EstoqueSaidaManager
 from core.models import TimeStampedModel
 from product.models import Product
 
@@ -13,7 +11,6 @@ MOVIMENTO = (
 
 
 class Estoque(TimeStampedModel):
-    funcionario = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     nf = models.PositiveIntegerField('nota fiscal', null=True, blank=True)
     movimento = models.CharField(max_length=1, choices=MOVIMENTO, blank=True)
 
@@ -32,59 +29,22 @@ class Estoque(TimeStampedModel):
 
 
 class EstoqueEntrada(Estoque):
-    objects = EstoqueEntradaManager()
+    produto = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantidade = models.PositiveIntegerField()
+
+    # saldo = models.PositiveIntegerField(blank=True, null=True)
 
     class Meta:
-        proxy = True
         verbose_name = 'estoque entrada'
         verbose_name_plural = 'estoque entrada'
 
 
 class EstoqueSaida(Estoque):
-    objects = EstoqueSaidaManager()
+    produto = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantidade = models.PositiveIntegerField()
+
+    # saldo = models.PositiveIntegerField(blank=True, null=True)
 
     class Meta:
-        proxy = True
         verbose_name = 'estoque saída'
         verbose_name_plural = 'estoque saída'
-
-
-class EstoqueItens(models.Model):
-    estoque = models.ForeignKey(
-        Estoque,
-        on_delete=models.CASCADE,
-        related_name='estoques'
-    )
-    produto = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantidade = models.PositiveIntegerField()
-    saldo = models.PositiveIntegerField(blank=True)
-
-    class Meta:
-        ordering = ('pk',)
-
-    def __str__(self):
-        return '{} - {} - {}'.format(self.pk, self.estoque.pk, self.produto)
-
-
-class ProtocoloEntrega(TimeStampedModel):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    estoque_atualizado = models.BooleanField(default=False)
-
-    def __str__(self):
-        return str(self.pk)
-
-    def get_absolute_url(self):
-        return reverse_lazy('estoque:protocolo_de_entrega_detail', kwargs={'pk': self.pk})
-
-
-class ProtocoloEntregaItens(models.Model):
-    protocolo_entrega = models.ForeignKey(
-        ProtocoloEntrega,
-        on_delete=models.CASCADE,
-        related_name='protocolo_entrega'
-    )
-    produto = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantidade = models.PositiveIntegerField()
-
-    def __str__(self):
-        return '{} - {} - {}'.format(self.pk, self.protocolo_entrega.pk, self.produto)
