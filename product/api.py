@@ -3,8 +3,8 @@ from typing import Optional, List
 from django.shortcuts import get_object_or_404
 from ninja import NinjaAPI
 
-from estoque.models import EstoqueEntrada
-from estoque.schema import EstoqueEntradaSchema
+from estoque.models import EstoqueEntrada, EstoqueSaida
+from estoque.schema import EstoqueEntradaSchema, EstoqueSaidaSchema
 from product.models import Product, Color, Size
 from product.schema import (
     ProductSchema, NotFoundSchema, ColorSchema, SizeSchema
@@ -60,3 +60,13 @@ def estoque_entrada(request, nf: int, qtd: int, product_id: int):
         qtd_atual = Product.objects.get(pk=product_id).estoque
         Product.objects.filter(pk=product_id).update(estoque=qtd_atual + estoque_entrada.quantidade)
         return estoque_entrada
+
+
+@api.post('/estoque-saida/', response=EstoqueSaidaSchema)
+def estoque_saida(request, nf: int, qtd: int, product_id: int):
+    product = Product.objects.filter(pk=product_id)
+    if product:
+        estoque_saida = EstoqueSaida.objects.create(nf=nf, movimento='s', produto_id=product_id, quantidade=qtd)
+        qtd_atual = Product.objects.get(pk=product_id).estoque
+        Product.objects.filter(pk=product_id).update(estoque=qtd_atual - estoque_saida.quantidade)
+        return estoque_saida
