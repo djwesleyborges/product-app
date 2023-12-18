@@ -36,6 +36,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='')
     color = models.ForeignKey(Color, on_delete=models.PROTECT)
     size = models.ForeignKey(Size, on_delete=models.PROTECT)
+    estoque = models.IntegerField('estoque atual', default=0)
 
     def __str__(self):
         return self.name

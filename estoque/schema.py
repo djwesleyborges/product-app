@@ -1,26 +1,34 @@
-from ninja import Schema, ModelSchema
+from ninja import ModelSchema
+from product.models import Product
+from ninja.orm import create_schema
+
 from . import models
 
-
-class EstoqueSchema(ModelSchema):
-    class Meta:
-        model = models.Estoque
-        fields = "__all__"
+EstoqueSchema = create_schema(models.Estoque)
+EstoqueEntradaSchema = create_schema(models.EstoqueEntrada)
+EstoqueSaidaSchema =  create_schema(models.EstoqueSaida)
 
 
-class EstoqueEntradaSchema(ModelSchema):
-    class Meta:
-        model = models.EstoqueEntrada
-        fields = "__all__"
+# class EstoqueSchema(ModelSchema):
+#     class Config:
+#         model = models.Estoque
+#         model_fields = '__all__'
 
 
-class EstoqueSaidaSchema(ModelSchema):
-    class Meta:
-        model = models.EstoqueSaida
-        fields = "__all__"
+# class EstoqueEntradaSchema(ModelSchema):
+#     product = list[Product]
+#
+#     class Config:
+#         model = models.EstoqueEntrada
+#         model_fields = '__all__'
 
-
-class EstoqueItensSchema(ModelSchema):
-    class Meta:
-        model = models.EstoqueItens
-        fields = "__all__"
+# class EstoqueSaidaSchema(ModelSchema):
+#     class Config:
+#         model = models.EstoqueSaida
+#         model_fields = '__all__'
+#
+#
+# class EstoqueItensSchema(ModelSchema):
+#     class Config:
+#         model = models.EstoqueItens
+#         model_fields = '__all__'

@@ -1,8 +1,10 @@
 from typing import Optional, List
 
 from django.shortcuts import get_object_or_404
-from ninja import NinjaAPI, File
-from ninja.files import UploadedFile
+from ninja import NinjaAPI
+
+from estoque.models import EstoqueEntrada
+from estoque.schema import EstoqueEntradaSchema
 from product.models import Product, Color, Size
 from product.schema import (
     ProductSchema, NotFoundSchema, ColorSchema, SizeSchema
@@ -20,7 +22,6 @@ def colors(request):
 def get_sizes(request, color: str):
     color = get_object_or_404(Color, color=color)
     sizes = Size.objects.filter(product__color=color).distinct()
-    #sizes = Product.objects.filter(color__color=color).distinct()
     return sizes
 
 
@@ -49,3 +50,13 @@ def get_similar_products(request, color: str, size: str):
     color = get_object_or_404(Color, color=color)
     size = get_object_or_404(Size, size=size)
     return Product.objects.filter(color=color, size=size)
+
+
+@api.post('/estoque-entrada/', response=EstoqueEntradaSchema)
+def estoque_entrada(request, nf: int, qtd: int, product_id: int):
+    product = Product.objects.filter(pk=product_id)
+    if product:
+        estoque_entrada = EstoqueEntrada.objects.create(nf=nf, movimento='e', produto_id=product_id, quantidade=qtd)
+        qtd_atual = Product.objects.get(pk=product_id).estoque
+        Product.objects.filter(pk=product_id).update(estoque=qtd_atual + estoque_entrada.quantidade)
+        return estoque_entrada
