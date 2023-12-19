@@ -1,4 +1,4 @@
-# Cadastro de Produtos
+# Cadastro de Produtos e Api de Estoque
 
 ## Este projeto foi feito com:
 
