@@ -22,7 +22,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 python manage.py migrate
-python manage.py loaddata db.json
-python manage.py createsuperuser
+python manage.py loaddata application_data.json
 python manage.py runserver
 ```
+Projeto: http://127.0.0.1:8000/ 
+
+http://localhost:8000/admin </br>
+user: admin </br>
+pass: admin </br>
+
+Api: http://localhost:8000/api/docs
