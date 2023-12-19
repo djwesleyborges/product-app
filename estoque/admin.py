@@ -1,17 +1,19 @@
 from django.contrib import admin
 
-from .models import (
-    EstoqueEntrada,
-    EstoqueSaida
-)
+from . import models
+from .models import EstoqueItem
 
 
-@admin.register(EstoqueEntrada)
+class EstoqueItemInline(admin.TabularInline):
+    model = EstoqueItem
+    extra = 0
+
+
+@admin.register(models.EstoqueEntrada)
 class EstoqueEntradaAdmin(admin.ModelAdmin):
-    ...
+    inlines = (EstoqueItemInline,)
 
 
-@admin.register(EstoqueSaida)
+@admin.register(models.EstoqueSaida)
 class EstoqueSaidaAdmin(admin.ModelAdmin):
-    ...
-
+    inlines = (EstoqueItemInline,)

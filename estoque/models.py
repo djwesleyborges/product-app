@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from core.managers import EstoqueEntradaManager, EstoqueSaidaManager
 from core.models import TimeStampedModel
 from product.models import Product
 
@@ -29,22 +30,27 @@ class Estoque(TimeStampedModel):
 
 
 class EstoqueEntrada(Estoque):
-    produto = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantidade = models.PositiveIntegerField()
-
-    # saldo = models.PositiveIntegerField(blank=True, null=True)
+    objects = EstoqueEntradaManager()
 
     class Meta:
+        proxy = True
         verbose_name = 'estoque entrada'
         verbose_name_plural = 'estoque entrada'
 
 
 class EstoqueSaida(Estoque):
+    objects = EstoqueSaidaManager()
+
+    class Meta:
+        proxy = True
+        verbose_name = 'estoque saída'
+        verbose_name_plural = 'estoque saída'
+
+
+class EstoqueItem(models.Model):
+    estoque = models.ForeignKey(Estoque, on_delete=models.CASCADE, related_name='estoques')
     produto = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
 
-    # saldo = models.PositiveIntegerField(blank=True, null=True)
-
-    class Meta:
-        verbose_name = 'estoque saída'
-        verbose_name_plural = 'estoque saída'
+    def __str__(self):
+        return '{} - {} - {}'.format(self.pk, self.estoque.pk, self.produto)
