@@ -1,0 +1,1073 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-12-19T17:55:54.435Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "1",
+      "object_repr": "yellow",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-12-19T17:55:58.700Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "blue",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2023-12-19T17:56:03.199Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "3",
+      "object_repr": "black",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2023-12-19T17:56:07.861Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "4",
+      "object_repr": "red",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2023-12-19T17:56:13.770Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "1",
+      "object_repr": "P",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2023-12-19T17:56:17.427Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "2",
+      "object_repr": "M",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2023-12-19T17:56:21.173Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "3",
+      "object_repr": "G",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2023-12-19T17:56:27.123Z",
+      "user": 1,
+      "content_type": 8,
+      "object_id": "4",
+      "object_repr": "GG",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2023-12-19T17:56:35.513Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "1",
+      "object_repr": "Camisa Amarela G",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2023-12-19T17:56:56.636Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "2",
+      "object_repr": "Camisa Amarela GG",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2023-12-19T17:57:26.021Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "3",
+      "object_repr": "Camisa Amarela M",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2023-12-19T17:57:45.163Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "4",
+      "object_repr": "Camisa Amarela P",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2023-12-19T17:58:13.607Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "5",
+      "object_repr": "Camisa Azul G",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2023-12-19T17:58:37.242Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "6",
+      "object_repr": "Camisa Azul M",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2023-12-19T17:58:58.839Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "7",
+      "object_repr": "Camisa Azul P",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2023-12-19T17:59:16.272Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "8",
+      "object_repr": "Camisa Preta M",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2023-12-19T17:59:33.774Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "9",
+      "object_repr": "Camisa Preta P",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2023-12-19T17:59:50.458Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "10",
+      "object_repr": "Camisa Vermelha G",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2023-12-19T18:00:05.256Z",
+      "user": 1,
+      "content_type": 9,
+      "object_id": "11",
+      "object_repr": "Camisa Vermelha M",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 4,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 4,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 4,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 4,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 5,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 6,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add color",
+      "content_type": 7,
+      "codename": "add_color"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change color",
+      "content_type": 7,
+      "codename": "change_color"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete color",
+      "content_type": 7,
+      "codename": "delete_color"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view color",
+      "content_type": 7,
+      "codename": "view_color"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add size",
+      "content_type": 8,
+      "codename": "add_size"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change size",
+      "content_type": 8,
+      "codename": "change_size"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete size",
+      "content_type": 8,
+      "codename": "delete_size"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view size",
+      "content_type": 8,
+      "codename": "view_size"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add product",
+      "content_type": 9,
+      "codename": "add_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change product",
+      "content_type": 9,
+      "codename": "change_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete product",
+      "content_type": 9,
+      "codename": "delete_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view product",
+      "content_type": 9,
+      "codename": "view_product"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add estoque",
+      "content_type": 10,
+      "codename": "add_estoque"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change estoque",
+      "content_type": 10,
+      "codename": "change_estoque"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete estoque",
+      "content_type": 10,
+      "codename": "delete_estoque"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view estoque",
+      "content_type": 10,
+      "codename": "view_estoque"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add estoque item",
+      "content_type": 11,
+      "codename": "add_estoqueitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change estoque item",
+      "content_type": 11,
+      "codename": "change_estoqueitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete estoque item",
+      "content_type": 11,
+      "codename": "delete_estoqueitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view estoque item",
+      "content_type": 11,
+      "codename": "view_estoqueitem"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add estoque entrada",
+      "content_type": 12,
+      "codename": "add_estoqueentrada"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change estoque entrada",
+      "content_type": 12,
+      "codename": "change_estoqueentrada"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete estoque entrada",
+      "content_type": 12,
+      "codename": "delete_estoqueentrada"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view estoque entrada",
+      "content_type": 12,
+      "codename": "view_estoqueentrada"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add estoque saída",
+      "content_type": 13,
+      "codename": "add_estoquesaida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change estoque saída",
+      "content_type": 13,
+      "codename": "change_estoquesaida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete estoque saída",
+      "content_type": 13,
+      "codename": "delete_estoquesaida"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view estoque saída",
+      "content_type": 13,
+      "codename": "view_estoquesaida"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$tssoWkUYjbkVhP6V9qPMUX$F2KEcVNaot7GgeyRcF+I2bwd5PIRZ8tTigwOmOk6uy8=",
+      "last_login": "2023-12-19T17:55:13.014Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@admin.org",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-12-19T17:54:49.821Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "product",
+      "model": "color"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "product",
+      "model": "size"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "product",
+      "model": "product"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "estoque",
+      "model": "estoque"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "estoque",
+      "model": "estoqueitem"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "estoque",
+      "model": "estoqueentrada"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "estoque",
+      "model": "estoquesaida"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "y24eher0aag3hsqz7ophtjhmpdobol0f",
+    "fields": {
+      "session_data": ".eJxVjEEOwiAQRe_C2hCYAqUu3XsGMsyAVA0kpV0Z765NutDtf-_9lwi4rSVsPS1hZnEWWpx-t4j0SHUHfMd6a5JaXZc5yl2RB-3y2jg9L4f7d1Cwl28dGWjK2UdiAwn15BUoAtQjKUC2iKyMdgocGBockkebcPDZ2FEPOor3B_0zOAY:1rFeJF:VdvgeYVCklV5Eo-7CiSYgWhMnI3N_BS5Lv4Md4-RECo",
+      "expire_date": "2024-01-02T17:55:13.019Z"
+    }
+  },
+  {
+    "model": "product.color",
+    "pk": 1,
+    "fields": {
+      "color": "yellow"
+    }
+  },
+  {
+    "model": "product.color",
+    "pk": 2,
+    "fields": {
+      "color": "blue"
+    }
+  },
+  {
+    "model": "product.color",
+    "pk": 3,
+    "fields": {
+      "color": "black"
+    }
+  },
+  {
+    "model": "product.color",
+    "pk": 4,
+    "fields": {
+      "color": "red"
+    }
+  },
+  {
+    "model": "product.size",
+    "pk": 1,
+    "fields": {
+      "size": "P"
+    }
+  },
+  {
+    "model": "product.size",
+    "pk": 2,
+    "fields": {
+      "size": "M"
+    }
+  },
+  {
+    "model": "product.size",
+    "pk": 3,
+    "fields": {
+      "size": "G"
+    }
+  },
+  {
+    "model": "product.size",
+    "pk": 4,
+    "fields": {
+      "size": "GG"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 1,
+    "fields": {
+      "name": "Camisa Amarela G",
+      "price": "50.00",
+      "image": "amarela_G_hLWgXOJ.png",
+      "color": 1,
+      "size": 3,
+      "estoque": 50
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 2,
+    "fields": {
+      "name": "Camisa Amarela GG",
+      "price": "50.00",
+      "image": "amarela_GG_59qQ3rO.png",
+      "color": 1,
+      "size": 4,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 3,
+    "fields": {
+      "name": "Camisa Amarela M",
+      "price": "50.00",
+      "image": "amarela_M_Wi6bUwY.png",
+      "color": 1,
+      "size": 2,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 4,
+    "fields": {
+      "name": "Camisa Amarela P",
+      "price": "50.00",
+      "image": "amarela_P_GVXZDKT.png",
+      "color": 1,
+      "size": 1,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 5,
+    "fields": {
+      "name": "Camisa Azul G",
+      "price": "20.00",
+      "image": "azul_G_LXvkHRO.png",
+      "color": 2,
+      "size": 3,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 6,
+    "fields": {
+      "name": "Camisa Azul M",
+      "price": "20.00",
+      "image": "azul_M_vbg7LuH.png",
+      "color": 2,
+      "size": 2,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 7,
+    "fields": {
+      "name": "Camisa Azul P",
+      "price": "20.00",
+      "image": "azul_P_WqrYwbn.png",
+      "color": 2,
+      "size": 1,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 8,
+    "fields": {
+      "name": "Camisa Preta M",
+      "price": "10.00",
+      "image": "preta_M_4o6GJgy.png",
+      "color": 3,
+      "size": 2,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 9,
+    "fields": {
+      "name": "Camisa Preta P",
+      "price": "10.00",
+      "image": "preta_P_nD3GfVs.png",
+      "color": 3,
+      "size": 1,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 10,
+    "fields": {
+      "name": "Camisa Vermelha G",
+      "price": "60.00",
+      "image": "vermelha_G_xCfR873.png",
+      "color": 4,
+      "size": 3,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 11,
+    "fields": {
+      "name": "Camisa Vermelha M",
+      "price": "60.00",
+      "image": "vermelha_M_RjPB4hP.png",
+      "color": 4,
+      "size": 2,
+      "estoque": 0
+    }
+  },
+  {
+    "model": "estoque.estoque",
+    "pk": 1,
+    "fields": {
+      "created": "2023-12-19T18:02:05.677Z",
+      "modified": "2023-12-19T18:02:05.677Z",
+      "nf": 123,
+      "movimento": "e"
+    }
+  },
+  {
+    "model": "estoque.estoque",
+    "pk": 2,
+    "fields": {
+      "created": "2023-12-19T18:02:33.751Z",
+      "modified": "2023-12-19T18:02:33.751Z",
+      "nf": 123,
+      "movimento": "s"
+    }
+  },
+  {
+    "model": "estoque.estoqueitem",
+    "pk": 1,
+    "fields": {
+      "estoque": 1,
+      "produto": 1,
+      "quantidade": 100
+    }
+  },
+  {
+    "model": "estoque.estoqueitem",
+    "pk": 2,
+    "fields": {
+      "estoque": 2,
+      "produto": 1,
+      "quantidade": 50
+    }
+  }
+]

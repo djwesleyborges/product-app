@@ -17,6 +17,10 @@ class Size(models.Model):
 
 
 class Product(models.Model):
+
+    class Meta:
+        ordering = ['id']
+
     name = models.CharField(
         _('name'),
         max_length=100,

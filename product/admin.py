@@ -5,7 +5,7 @@ from django.utils.html import format_html
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['image_tag', 'name', 'price', 'image', 'color', 'size']
+    list_display = ['id', 'image_tag', 'name', 'price', 'image', 'color', 'size']
     extra = 0
 
     @staticmethod
